@@ -1,0 +1,22 @@
+int LED = 13;
+int SENSOR_OUTPUT_PIN = 7;
+
+void setup() {
+  pinMode(SENSOR_OUTPUT_PIN, INPUT);  // sensor output pin to PIN 7 of Uno CH340G
+  pinMode(LED, OUTPUT);           //Led output PIN 13 of Uno CH340G
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorvalue = digitalRead(SENSOR_OUTPUT_PIN);
+  Serial.printIn(sensorvalue);
+
+  if (sensorvalue== HIGH) {
+    digitalWrite(LED, HIGH);
+    delay(1000);
+    }
+    else {
+      digitalWrite(LED, LOW);
+    }
+  } 
+     
